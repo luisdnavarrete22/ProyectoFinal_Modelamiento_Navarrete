@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %} Datos Utilizados {% endblock %}
+{% block content %}
+<center>
+    <br>
+    <div class="w3-container w3-teal">
+        <h2 style="font-family:'Lato'; color: rgb(255, 255, 255); font-size:30px;"><strong>Índice de Calidad de Vida en los
+            países en 2022 (dataset)</strong>
+    </div>
+    <br>
+</center>
+<div class="card2">
+    <div class="container">
+      <div class="row">
+        <div class="card-body">
+          <br>
+          <h3 class="card-title" align="center">Explicación del dataset:</h3>
+          <br>
+          <p class="card-text" style="text-align: justify;">Estos índices son relativos a la ciudad de Nueva York 
+            (NYC). Lo que significa que para la ciudad de Nueva York, cada índice debe ser de 100 (%). 
+            Si otra ciudad tiene, por ejemplo, un índice de alquiler de 120, significa que en promedio en esa 
+            ciudad los alquileres son un 20% más caros que en la ciudad de Nueva York. 
+            Si una ciudad tiene un índice de alquiler de 70, eso significa que en promedio el alquiler en esa 
+            ciudad es un 30% menos costoso que en la ciudad de Nueva York.
+          <p class="card-text" style="text-align: justify;">- El Índice de Costo de Vida (Excl. Alquiler) es un 
+            indicador relativo de los precios de los bienes de consumo, incluidos los comestibles, restaurantes, 
+            transporte y servicios públicos. El Índice de Costo de Vida no incluye gastos de alojamiento como 
+            alquiler o hipoteca. Si una ciudad tiene un índice de costo de vida de 120, significa que Numbeo ha 
+            estimado que es un 20% más caro que Nueva York (excluyendo el alquiler).</p>
+          <p class="card-text" style="text-align: justify;">- El índice de alquiler es una estimación de los precios de 
+            alquiler de apartamentos en la ciudad en 
+            comparación con la ciudad de Nueva York. Si el índice de alquileres es de 80, Numbeo ha estimado que el 
+            precio de los alquileres en esa ciudad es en promedio un 20% menor que el precio en Nueva York.</p>
+          <p class="card-text" style="text-align: justify;">- El Índice de Comestibles es una estimación de los 
+              precios de los comestibles en la ciudad en comparación con la ciudad de Nueva York. Para calcular esta 
+              sección, Numbeo utiliza pesos de artículos en la sección "Mercados" para cada ciudad.</p>
+          <p class="card-text" style="text-align: justify;">- El Índice de Restaurantes es una comparación de los 
+            precios de las comidas y bebidas en restaurantes y bares en comparación con Nueva York.</p>
+          <p class="card-text" style="text-align: justify;">- El Índice de Costo de Vida Más Alquiler es una estimación de los precios de los 
+            bienes de consumo, incluido el alquiler, en comparación con la ciudad de Nueva York.</p>
+            <p class="card-text" style="text-align: justify;">- El poder adquisitivo local muestra el poder adquisitivo
+              relativo en la compra de bienes y servicios en una ciudad determinada para el salario neto promedio 
+              en esa ciudad. Si el poder adquisitivo nacional es de 40, esto significa que los habitantes de esa 
+              ciudad con un salario promedio pueden permitirse comprar en promedio un 60% menos de bienes y servicios
+              que los residentes de la ciudad de Nueva York con un salario promedio.</p>
+          </p>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="card border-black mb-2">
+    <table class="table table-bordered border-secondary">
+        <thead style="color: rgb(11, 2, 58)">
+            {% for i in data.columns %}
+            <th>{{ i }}</th>
+            {% endfor %}
+        </thead>
+        <tbody>
+            {% for i in data.iterrows() %}
+            <tr>
+                <td><center>{{ i[1][0] }}</center></td>
+                <td><center>{{ i[1][1] }}</center></td>
+                <td><center>{{ i[1][2] }}</center></td>
+                <td><center>{{ i[1][3] }}</center></td>
+                <td><center>{{ i[1][4] }}</center></td>
+                <td><center>{{ i[1][5] }}</center></td>
+                <td><center>{{ i[1][6] }}</center></td>
+                <td><center>{{ i[1][7] }}</center></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

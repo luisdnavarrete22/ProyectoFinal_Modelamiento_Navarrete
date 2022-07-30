@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %} Montecarlo {% endblock %}
+{% block content %}
+<center>
+    <br>
+    <div class="w3-container w3-teal">
+        <h2 style="font-family:'Lato'; font-size:50px; color: white"><strong>Resultados</strong>
+    </div>
+</center>
+<h3 style="font-family:Geneva, Verdana, sans-serif; color:white"><strong> Datos generados</strong></h3>
+<br>
+<div class="mb-3">
+    {{data|safe}}
+</div>
+<br>
+<h3 style="font-family:Geneva, Verdana, sans-serif; color: white;"><strong>Simulación</strong></h3>
+<br>
+<div class="cards">
+    <div class=" mb-3">
+    {{data2|safe}}
+</div>
+</div>
+<br>
+<h3 style="font-family:Geneva, Verdana, sans-serif; color:white"><strong>Gráfica</strong></h3>
+<br>
+<div class="card my-3 w-100">
+    <div class="alert alert1 alert-danger" role="alert">
+        <div class="row g-0">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <center>
+                        <div class="carousel-item active">
+                            <img src="data:image/png;base64,{{image}}" class="img-fluid rounded-start"
+                                alt="grafica">
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

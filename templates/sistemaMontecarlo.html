@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block title %} Montecarlo {% endblock %}
+{% block content %}
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+</div>
+{% endif %}
+<form enctype="multipart/form-data" method="POST" action="{{url_for('calcularMontecarlo')}}"><br>
+    <center>
+        <h2 style="font-family:'Lato'; font-size:50px; color: white; "><strong>Sistema Montecarlo</strong>
+        </h2>
+    </center><br><br>
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <br>
+                            <h5 style="font-family:Lato, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                            color: white" align="center">Congruencia Lineal
+                            </h5>
+                            <hr><br>
+                            <div class="input-group mb-3">
+                                <input name="numeroIteraciones" type="number" class="form-control"
+                                    id="validationDefault01" placeholder="Iteracciones" required>
+                                <input name="semilla" type="number" class="form-control" id="validationDefault02"
+                                    placeholder="Semilla" required>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input name="multiplicador" type="number" class="form-control" id="validationDefault01"
+                                    placeholder="a" required>
+                                <input name="incremento" type="number" class="form-control" id="validationDefault02"
+                                    placeholder="c" required>
+                                <input name="modulo" type="number" class="form-control" id="validationDefault01"
+                                    placeholder="m" required>
+                            </div><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-row">
+                                <br>
+                                <h5 style="font-family:Lato, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+                                color: white" align="center"> Subir Archivo
+                                </h5>
+                                <hr><br>
+                                <div class="input-group mb-3">
+                                    <form class="row g-6">
+                                        <div class="col-md-8">
+                                            <input name="file" type="file" class="form-control form-data" id="exampleFormControlFile1">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select id="inputState" name='tipoarchivo' class="form-select">
+                                                <option value="1">Excel</option>
+                                                <option value="2">CSV</option>
+                                                <option value="3">JSON</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input name="x" type="text" class="form-control" id="validationDefault01"
+                                        placeholder="Columna x" required>
+                                    <input name="y" type="text" class="form-control" id="validationDefault01"
+                                        placeholder="Columna y" required>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <br>
+        <center>
+            <button type="submit" class="btn btn1 btn-outline-secondary" style="width: 300px; color:white">Calcular</button>
+        </center><br>
+    </div>
+    </div>
+</form>
+
+{% endblock %}

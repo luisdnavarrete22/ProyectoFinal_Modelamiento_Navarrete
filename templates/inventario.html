@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %} Inventario {% endblock %}
+{% block content %}
+<br>
+<div class="card bg-success mb-3" style="background-color: rgb(11, 2, 58);">
+  <div class="container" style="background-color: rgb(11, 2, 58);">
+    <div class="container" style="background-color: rgb(11, 2, 58);">
+      <div class="row" style="background-color: rgb(11, 2, 58);">
+        <br>
+        <br><br><br>
+        <div class="col-sm-6"><img src="{{ url_for('static', filename='inventarios.png') }}"
+          style="filter:alpha(opacity=50); height: 255px;" align="center" class="rounded mx-auto d-block">
+          <br>
+          <h1 class="card-title" align="center" style="font-style: italic;">¿Qué es un sistema de inventarios?</h1>
+          <br>
+        </div>
+        <div class="col-sm-6">
+          <br>
+          <h5 class="card-title" align="justify">La simulación de inventarios es considerada como una técnica 
+            eficiente para definir políticas acordes a las características de 
+            los productos y a las necesidades de las compañías.
+          </h5>
+          <br>
+          <h5 class="card-title" align="justify">La técnica de simulación de inventarios tiene como objetivo 
+            recrear las condiciones no exploradas en la reposición y 
+            demanda de productos (D), pretendiendo estudiar distintas 
+            situaciones creadas para anticipar imprevistos y tomar 
+            decisiones correctas antes de la inversión de capital. Su 
+            aplicación en el campo de la logística y la cadena de suministro 
+            abarca la simulación de centros de distribución, bodegas, 
+            procesos de pedido y demanda, entre otras. Esta técnica, toma 
+            como variables de entrada la distribución de demanda real de 
+            los artículos estudiados a distintos niveles de reposición, los 
+            costos de almacenamiento, los costos de incumplimiento, la 
+            utilidad por producto, entre otros factores.
+          </h5>
+          <br>
+        </div>
+        <br>
+{% endblock %}

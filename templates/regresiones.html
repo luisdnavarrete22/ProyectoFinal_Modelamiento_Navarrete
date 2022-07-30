@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} Promedio Móvil {% endblock %}
+{% block content %}
+<br><br>
+<div class="card bg-dark text-white">
+    <div class="card-img-overlay">
+        <div class="row">
+            <div class="col-sm-6">
+                <br><br><br>
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h4 class=" card1 card-title">Regresion Cuadrática</h4>
+                        </center>
+                        <br>
+                        <p class="card-text" align='justify'>La regresión cuadrática es el proceso de determinar la ecuación de una parábola 
+                            que mejor se ajusta a un conjunto de datos. Este conjunto de datos es un conjunto específico de puntos 
+                            gráficos que forman la forma de una parábola. La ecuación parabólica es y = ax2 + bx + c, 
+                            donde a nunca puede ser cero.</p>
+                            <br>
+                        <a href="/regresionCuadratica" class="btn btn1 btn-outline-secondary" style="color: white; font-family: Lato;">Ir</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <br><br><br>
+                <div class="card">
+                    <div class="card-body">
+                        <center>
+                            <h4 class=" card1 card-title">Regresion Lineal</h4>
+                        </center>
+                        <br>
+                        <p class="card-text" align='justify'>La regresión lineal es una técnica paramétrica empleada en machine learning. 
+                            Al ser paramétrica, antes de analizar los datos ya se conoce el número de parámetros o coeficientes que se van 
+                            a necesitar. Por ejemplo, con una sola variable, se sabe que una línea va a contar con dos parámetros. </p>
+                            <br>
+                        <a href="/regresionLineal" class="btn btn1 btn-outline-secondary" style="color: white; font-family: Lato;">Ir</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

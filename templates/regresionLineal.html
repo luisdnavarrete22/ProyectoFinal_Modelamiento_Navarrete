@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %} Regresión Lineal {% endblock %}
+{% block content %}
+<div id="app">
+    {% if imagen %}
+    <center>
+        <br>
+        <div class="w3-container w3-teal">
+            <h2 style="font-family:'Lato'; font-size:50px; color: white;"><strong>Resultados</strong>
+        </div>
+    </center>
+    <h3 style="font-family:Lato, Verdana, sans-serif; color: white;"><strong> Datos generados</strong></h3>
+    <br>
+    <div class="card my-3 w-100">
+        <div class="alert alert1 alert-danger" role="alert">
+            <div class="row g-0">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <center>
+                            <div class="carousel-item active">
+                                <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start"
+                                    alt="grafica">
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+    {% else %}
+    <br><br><br><br>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <div class="card">
+        <div class="card-body">
+            <form action="/regresionLineal" method="post">
+                <br>
+                <center>
+                    <h2 style="font-family:'Lato'; font-size:50px; color:white"><strong>Regresión Lineal</strong>
+                    </h2>
+                    <hr>
+                </center>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Nombre del eje X" name="xlbl" v-model='xlbl'>
+                        <input type="text" class="form-control" placeholder="Nombre del eje Y" name="ylbl" v-model="ylbl">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <textarea name="x" rows="3" class="form-control"
+                        placeholder="Datos del eje X (solo numeros seperados por , )" v-model="x"></textarea>
+                        <textarea name="y" rows="3" class="form-control"
+                        placeholder="Datos del eje Y (solo numeros seperados por , )" v-model="y"></textarea>
+                    </div>
+                </div>
+                <br>
+                <center>
+                    <button class="btn btn1 btn-outline-secondary" style="width: 300px; color:white"
+                        @click="llenarCampos()">Resultados</button>
+                    <button type="submit" class="btn btn2 btn-outline-secondary" style="width: 300px; color:white">Calcular</button>
+                </center>
+            </form>
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+<script>
+    const app = {
+        data() {
+            return {
+                xlbl: null,
+                x: null,
+                ylbl: null,
+                y: null
+            }
+        },
+        methods: {
+            llenarCampos() {
+                this.xlbl = 'País';
+                this.ylbl = 'Índice de Precios de Restaurantes';
+                this.x = '156, 245, 470, 120, 623,  785, 943,222,346, 567, 375, 402, 120, 789,202';
+                this.y = '102, 510, 225, 310, 914, 438, 924,122, 609, 812, 745, 288, 124, 502,410';
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+</script>
+{% endblock %}

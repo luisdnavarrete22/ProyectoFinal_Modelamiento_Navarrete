@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %} Inicio {% endblock %}
+{% block content %}
+<br>
+<div class="col-sm-6" style="text-align: center;">
+  <br>
+  <button class="btn" style="font-family: Lato; width: 300px;" type="button"
+                    OnClick="window.open('https://drive.google.com/file/d/1qL6SaH4Kvw2--9CYQbAVZYlWQnVMBM_Q/view?usp=sharing')" 
+                    target="_blank"
+                    >ACCEDER A MANUAL DE USUARIO</button>
+  <br>
+</div>
+<div class="col-sm-6" style="text-align: center;">
+  <br>
+  <button class="btn" style="font-family: Lato; width: 300px;" align="center" type="button"
+                    OnClick="window.open('https://youtu.be/dJPJPOZ_cUk')" 
+                    target="_blank"
+                    >ACCEDER A VIDEO EXPLICATIVO</button>
+  <br>
+</div>
+<br>
+<div class="card bg-success mb-3" style="background-color: rgb(11, 2, 58);">
+  <div class="container" style="background-color: rgb(11, 2, 58);">
+    <div class="container" style="background-color: rgb(11, 2, 58);">
+      <div class="row" style="background-color: rgb(11, 2, 58);">
+        <br>
+        <div class="col-sm-6"><img src="{{ url_for('static', filename='simulation.webp') }}"
+          style="filter:alpha(opacity=50); height: 350px;" class="rounded mx-auto d-block">
+          <br>
+          <h1 class="card-title" align="center" style="font-style: italic;">¡Bienvenido a tu sitio web de Modelamiento y Simulación!</h1>
+          <br>
+        </div>
+        <div class="col-sm-6"><img src="{{ url_for('static', filename='uleam.png') }}"
+          style="filter:alpha(opacity=50); height: 135px;" class="rounded mx-auto d-block">
+          <br>
+          <h5 class="card-title" align="justify">Bienvenido, soy un estudiante de 6to nivel "B",
+            he propuesto la creación y elaboración de este proyecto final, referente a un sistema de 
+            análisis acerca del índice de calidad de vida durante el año 2022, para poder realizar
+            gráficos de interés, operaciones estadísticas, y todo lo referente a el modelamiento y la simulación.
+          </h5>
+          <br>
+          <h5 class="card-title" align="justify">Como estudiante de la Facultad de Ciencias Informáticas,
+            espero que este sitio web sea de tu agrado, y te sumerjas de lleno dentro de el increíble mundo
+            del modelamiento y las simulaciones, gracias por visitarme.
+          </h5>
+          <br>
+          <h5 class="card-title" align="right">Att.: Luis Navarrete, autor.</h5>
+          <br>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="card bg-success mb-3" style="background-color: rgb(11, 2, 58);">
+  <div class="container" style="background-color: rgb(11, 2, 58);">
+    <div class="container" style="background-color: rgb(11, 2, 58);">
+      <div class="row" style="background-color: rgb(11, 2, 58);">
+        <div class="col-sm-6">
+          <img src="{{ url_for('static', filename='profilePic.jpg') }}"
+            style="filter:alpha(opacity=50); height: 375px;" class="rounded mx-auto d-block">
+        </div>
+        <div class="col-sm-6">
+          <br>
+          <h1 class="card-title" align="center">Universidad Laica Eloy Alfaro de Manabí - Proyecto Final</h1>
+          <br>
+          <h4 class="card-title" align="center">Realizado por:</h4>
+          <p class="card-text" align="center">Luis David Navarrete Cevallos</p>
+          <h4 class="card-title" align="center">Curso:</h4>
+          <p class="card-text" align="center">6to Nivel, Paralelo "B"</p>
+          <h4 class="card-title" align="center">Asignatura:</h4>
+          <p class="card-text" align="center">Modelamiento y Simulación</p>
+          <h4 class="card-title" align="center">Entregado a:</h4>
+          <p class="card-text" align="center">Ing. Jorge Aníbal Moya Delgado</p>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+<div class="card bg-light mb-3">
+  <div class="container">
+    <div class="row">
+      <div class="card-body">
+        <br>
+        <h3 class="card-title" align="center">¿Qué es un índice de calidad de vida?</h3>
+        <br>
+        <p class="card-text" align="justify">El significado de calidad de vida es complejo, ya que se trata de un concepto que usamos para referirnos 
+          a variables de tipo económico, social y político, entre otros, que impactan directamente en la vida humana. 
+          Sin embargo, no existe un consenso respecto a lo que la calidad de vida es, por lo que existen definiciones 
+          provenientes de distintos campos del saber, como la sociología, la política, la medicina, etc.
+
+          Lo que sí existe es un criterio más o menos definido respecto a qué países y regiones ofrecen modelos de vida 
+          a su población que permiten un mayor desarrollo de sus potencialidades y, en líneas generales, una vida más 
+          plena.
+        </p>
+        <br>
+        <h3 class="card-title" align="center">¿De qué trata el sistema?</h3>
+        <br>
+        <p class="card-text" align="justify">Es un sistema propuesto para poder describir procesos estadísticos y referentes
+          al índice de calidad de vida y a sus diferentes atributos y/o parámetros, trabajados en la actualidad,
+          es decir, en el año 2022.
+        </p>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

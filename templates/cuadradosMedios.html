@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %} Cuadrados Medios {% endblock %}
+{% block content %}
+<div id="app">
+    {% if imagen1 %}
+    <center>
+        <br>
+        <div class="w3-container w3-teal">
+            <h2 style="font-family:'Lato'; font-size:50px; color: white;"><strong>Resultados</strong>
+        </div>
+    </center>
+    <h3 style="font-family:Lato, Verdana, sans-serif; color: white;"><strong>Datos Generados</strong></h3>
+    <br>
+    <div class="card mb-3">
+        <table class="table table-bordered border-secondary">
+            <thead style="color: rgb(11, 2, 58) !important;">
+                {% for i in datos.columns %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for i in datos.iterrows() %}
+                <tr>
+                    <td>{{ i[1][0] }}</td>
+                    <td>{{ i[1][1] }}</td>
+                    <td>{{ i[1][2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <h2 style="font-family:Lato, Verdana, sans-serif; color: white;" align="center"><strong>Gráfico Generado:</strong></h2>
+    <div class="card my-3 w-100">
+        <div class="alert alert1 alert-danger" role="alert">
+            <div class="row g-0">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <center>
+                            <div class="carousel-item active">
+                                <img src="data:image/png;base64,{{imagen1}}" class="img-fluid rounded-start"
+                                    alt="grafica">
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <br><br><br><br>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <div class="card">
+        <div class="card-body">
+            <form action="/cuadradosMedios" method="post">
+                <br>
+                <center>
+                    <h2 style="font-family:'Lato'; font-size:50px; color: white;" align="center"><strong>Cuadrados
+                            Medios</strong>
+                    </h2>
+                    <hr>
+                    <br>
+                </center>
+                <div class="input-group">
+                    <input type="number" class="form-control" placeholder="Cantidad de números a generar" name="n"
+                        v-model="n">
+                    <input type="number" class="form-control" placeholder="Semilla" name="r" v-model="r">
+                </div>
+                <br><br>
+                <center>
+                    <button class="btn btn1 btn-outline-secondary" style="width: 300px; font-family: Lato; color:white"
+                        @click="llenarCampos()">Resultados</button>
+                    <button type="submit" class="btn btn2 btn-outline-secondary" style="width: 300px; font-family: Lato; color: white;">Calcular</button>
+                </center>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<script>
+    const app = {
+        data() {
+            return {
+                n: null,
+                r: null
+            }
+        },
+        methods: {
+            llenarCampos() {
+                this.n = 45;
+                this.r = 243;
+            }
+        }
+    }
+
+    Vue.createApp(app).mount('#app');
+</script>
+{% endblock %}

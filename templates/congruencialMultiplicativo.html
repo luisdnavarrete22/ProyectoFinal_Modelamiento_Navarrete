@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %} Congruencial Multiplicativo {% endblock %}
+{% block content %}
+<div id="app">
+    {% if imagen %}
+    <center>
+        <br>
+        <div class="w3-container w3-teal">
+            <h2 style="font-family:'Lato'; font-size:50px; color:white"><strong>Resultados</strong>
+        </div>
+    </center>
+    <h3 style="font-family:'Lato', Verdana, sans-serif; color:white"><strong>Datos generados</strong></h3>
+    <br>
+    <div class="card mb-3">
+        <table class="table table-bordered border-secondary">
+            <thead style="color: rgb(87, 11, 15) !important;">
+                {% for i in datos.columns %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for i in datos.iterrows() %}
+                <tr>
+                    <td>{{ i[1][0] }}</td>
+                    <td>{{ i[1][1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>      
+    <div class="card my-3 w-100">
+        <div class="alert alert1 alert-danger" role="alert">
+            <div class="row g-0">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <center>
+                            <div class="carousel-item active">
+                                <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start" alt="grafica">
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>      
+    
+    {% else %}
+        <br><br><br><br>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <div class="card">
+        <div class="card-body">
+            <form action="/congruencialMultiplicativo" method="POST">
+                <br>
+                <center>
+                    <h2 style="font-family:'Lato'; font-size:50px; color: white;"><strong>Congruencial Multiplicativo</strong>
+                    </h2>
+                    <hr>
+                </center>
+                <div class="mb-3"> 
+                    <div class="input-group">
+                        <input type="number" class="form-control" placeholder="Cantidad de números a generar" name="n"
+                            required v-model="n">
+                            <input type="number" class="form-control" placeholder="X0" name="x" required v-model="x0">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input type="number" class="form-control" placeholder="a" name="a" required v-model="a">
+                        <input type="number" class="form-control" placeholder="m" name="m" required v-model="m">
+                    </div>
+                </div>
+                <br><br>
+                <center>
+                    <button class="btn btn1 btn-outline-secondary" style="width: 300px; color:white"
+                        @click="llenarCampos()">Resultados</button>
+                    <button type="submit" class="btn btn2 btn-outline-secondary" style="width: 300px; color:white">Calcular</button>
+                </center>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<script>
+    const app = {
+        data() {
+            return {
+                n: null,
+                x0: null,
+                a: null,
+                m: null
+            }
+        },
+        methods: {
+            llenarCampos() {
+                this.n = 25;
+                this.x0 = 545;
+                this.a = 478;
+                this.m = 1480;
+            }
+        }
+    }
+    Vue.createApp(app).mount('#app');
+</script>
+
+{% endblock %}

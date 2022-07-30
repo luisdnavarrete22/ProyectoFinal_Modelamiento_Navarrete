@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %} Congruencial Lineal {% endblock %}
+{% block content %}
+{% if imagen %}
+<center>
+    <br>
+    <div class="w3-container w3-teal">
+        <h2 style="font-family:'Lato'; font-size:50px; color:white"><strong>Resultados</strong>
+    </div>
+    <br>
+</center>
+<h3 style="font-family:'Lato', Verdana, sans-serif; color:white"><strong> Datos generados</strong></h3>
+<br>
+<div class="card my-3 w-100">
+    <div class="alert alert1 alert-danger" role="alert">
+        <div class="row g-0">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <center>
+                        <div class="carousel-item active">
+                            <img src="data:image/png;base64,{{imagen}}" class="img-fluid rounded-start" alt="grafica">
+                        </div>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<br><br><br><br>
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+</div>
+{% endif %}
+<div class="card">
+    <div class="card-body">
+        <form action="/distribucionPoisson" method="POST">
+            <br>
+            <center>
+                <h2 style="font-family:'Lato'; font-size:50px; color:white"><strong>Distribución de Poisson</strong>
+                </h2>
+                <hr>
+            </center>
+            <div class="mb-3"> 
+                        <input type="number" class="form-control" placeholder="Landa" name="landa" required>
+            </div>
+            <br>
+            <center>
+                <button type="submit" class="btn btn1 btn-outline-secondary" style="width: 300px; color:white">Calcular</button>
+            </center>
+        </form>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

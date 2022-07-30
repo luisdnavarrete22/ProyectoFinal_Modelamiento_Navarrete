@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %} Suavización exponencial {% endblock %}
+{% block content %}
+<div id="app">
+    {% if cargar %}
+    <center>
+        <br>
+        <div class="w3-container w3-teal">
+            <h2 style="font-family:'Lato'; font-size:50px; color: white;"><strong>Resultados</strong>
+        </div>
+    </center>
+    <h3 style="font-family:Lato, Verdana, sans-serif; color: white;"><strong> Datos generados</strong></h3>
+    <br>
+    <div class="card mb-3">
+        <table class="table table-bordered border-secondary">
+            <thead style="color: rgb(87, 11, 15) !important;">
+                {% for i in datos.columns %}
+                <th>{{ i }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                {% for i in datos.iterrows() %}
+                <tr>
+                    <td>{{ i[1][0] }}</td>
+                    <td>{{ i[1][1] }}</td>
+                    <td>{{ i[1][2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <br><br><br><br>
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+    <div class="card">
+        <div class="card-body">
+            <form action="/suavizacionExponencial" method="post">
+                <br>
+                <center>
+                    <h2 style="font-family:'Lato'; font-size:50px; color: white;"><strong>Suavización Exponencial</strong>
+                    </h2>
+                    <hr>
+                </center>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Nombre del eje X" name="xlbl" v-model='xlbl'>
+                        <input type="text" class="form-control" placeholder="Nombre del eje Y" name="ylbl" v-model="ylbl">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <textarea name="x" rows="3" class="form-control"
+                        placeholder="Datos del eje X (solo numeros seperados por , )" v-model="x"></textarea>
+                        <textarea name="y" rows="3" class="form-control"
+                        placeholder="Datos del eje Y (solo numeros seperados por , )" v-model="y"></textarea>
+                    </div>
+                </div>
+                <br>
+                <center>
+                    <button class="btn btn1 btn-outline-secondary" style="width: 300px; color:white"
+                        @click="llenarCampos()">Resultados</button>
+                    <button type="submit" class="btn btn2 btn-outline-secondary" style="width: 300px; color:white">Calcular</button>
+                </center>
+            </form>
+        </div>
+    </div>
+
+    {% endif %}
+</div>
+<script>
+    const app = {
+        data() {
+            return {
+                xlbl: null,
+                x: null,
+                ylbl: null,
+                y: null
+            }
+        },
+        methods: {
+            llenarCampos() {
+                this.xlbl = 'País';
+                this.ylbl = 'Índice de Precios de Restaurantes';
+                this.x = '156, 245, 470, 120, 623,  785, 943,222,346, 567, 375, 402, 120, 789,202';
+                this.y = '102, 510, 225, 310, 914, 438, 924,122, 609, 812, 745, 288, 124, 502,410';
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+</script>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %} Análisis de los Datos {% endblock %}
+{% block content %}
+<center>
+  <br>
+  <div class="w3-container w3-teal">
+      <h2 style="font-family:'Lato'; font-size:50px; color: white;"><strong>Gráficos referentes a el índice de calidad de 
+        vida
+      </strong>
+  </div>
+  <br>
+</center>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <img src="data:image/png;base64,{{imagen1}}" class="img-fluid rounded-start" alt="grafica">
+      <div class="card-body">
+        <h5 class="card-title" style="font-family: Lato; color:white; text-align: center;">Total de índice de precios de restaurante por país</h5>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+       <img src="data:image/png;base64,{{imagen2}}" class="img-fluid rounded-start" alt="grafica">
+      <div class="card-body">
+        <h5 class="card-title" style="font-family: Lato; color:white; text-align: center;">Total de índice de costo de vida</h5>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="data:image/png;base64,{{imagen3}}" class="img-fluid rounded-start" alt="grafica">
+      <div class="card-body">
+        <h5 class="card-title" style="font-family: Lato; color: white; text-align: center;">Total de índice de alquiler</h5>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="data:image/png;base64,{{imagen4}}" class="img-fluid rounded-start" alt="grafica">
+      <div class="card-body">
+        <h5 class="card-title" style="font-family: Lato; text-align: center;">Índice de poder adquisitivo local</h5>
+      </div>
+    </div>
+  </div>
+</div> <br><br>
+
+{% endblock %}

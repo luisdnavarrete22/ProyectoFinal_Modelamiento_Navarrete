@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %} Línea de Espera {% endblock %}
+{% block content %}
+<br>
+<div class="card bg-success mb-3" style="background-color: rgb(11, 2, 58);">
+  <div class="container" style="background-color: rgb(11, 2, 58);">
+    <div class="container" style="background-color: rgb(11, 2, 58);">
+      <div class="row" style="background-color: rgb(11, 2, 58);">
+        <br>
+        <div class="col-sm-6"><img src="{{ url_for('static', filename='filas.jpg') }}"
+          style="filter:alpha(opacity=50); height: 350px;" class="rounded mx-auto d-block">
+          <br>
+          <h1 class="card-title" align="center" style="font-style: italic;">¿En qué consisten las líneas de espera?</h1>
+          <br>
+        </div>
+        <div class="col-sm-6">
+          <br>
+          <h5 class="card-title" align="justify">Una línea de espera es el efecto resultante en un sistema cuando 
+              la demanda de un servicio supera la capacidad de proporcionar dicho servicio. 
+              Este sistema está formado por un conjunto de entidades en paralelo que proporcionan un servicio 
+              a las transacciones que  aleatoriamente entran al sistema. Dependiendo del sistema que se trate, 
+              las entidades  pueden ser cajeras, máquinas, semáforos, grúas, etcétera, mientras que las 
+              transacciones pueden ser: clientes, piezas, autos, barcos, etcétera.
+          </h5>
+          <br>
+          <h5 class="card-title" align="justify">Una línea de espera puede modelarse como un proceso estocástico 
+              en el cual la variable aleatoria se define como el número de transacciones en el sistema en un 
+              momento dado; el conjunto de valores que puede tomar dicha variable es {O, 1, 2, . . . , N\ 
+              y cada uno de ellos tiene asociada una probabilidad de ocurrencia.
+          </h5>
+        </div>
+        <br>
+
+{% endblock %}
